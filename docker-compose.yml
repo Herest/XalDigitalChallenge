@@ -1,8 +1,9 @@
 # Use postgres/example user/password credentials
 version: '3.1'
 services:
-  flask_db:
-      container_name: flask_db
+# This is the db definition
+  xald_db:
+      container_name: xald_db
       image: postgres
       restart: always
       environment:
@@ -11,29 +12,32 @@ services:
         POSTGRES_DB: postgres
       ports:
         - 5432:5432
+#Add everything to the same network so the containers can talk to each other
       networks:
         - postgres
       volumes:
+#Create and fill the db on create
         - ./dataset:/docker-entrypoint-initdb.d
-        #- pgdata:/var/lib/postgresql/data
-  flask_app:
-      container_name: flask_app
+        
+  xald_app:
+      container_name: xald_app
       build: .
       ports:
         - "4000:4000"
       environment:
-        - DB_URL=postgresql://postgres:example@flask_db:5432/postgres
+#The URL from the above DB with the credentials defined on top
+        - DB_URL=postgresql://postgres:example@xald_db:5432/postgres
       depends_on:
-        - flask_db
+        - xald_db
+#Add everything to the same network so the containers can talk to each other
       networks:
         - postgres
   
   centos:
     image: centos
+#Add everything to the same network so the containers can talk to each other
     networks:
       - postgres
 networks:
   postgres:
     driver: bridge
-#volumes:
-#  pgdata: {}
