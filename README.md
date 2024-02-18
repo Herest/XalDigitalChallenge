@@ -23,7 +23,7 @@ This is a GET method that list all the content inside the Users table
 > HTTP://18.223.32.201:4000/users  
 
 ### Create a user
-This is a POST method that receives a JSON with key-values equivalent to the ones declared in the Users table definition
+This is a POST method that receives a JSON with key-values equivalent to the ones declared in the Users table definition. This method also checks if state value is string and has length 2
 > HTTP://18.223.32.201:4000/users
 > Example of JSON
 > > {first_name:<A_FIRST_NAME>,
@@ -43,7 +43,7 @@ This is a GET method that retrieves a user by its id values, that needs to be kn
 > HTTP://18.223.32.201:4000/users/<int:id> 
 
 ### Update a user by ID
-Similarly, this is its POST equivalent method that updates a specific user using its id values, that needs to be known beforehand. A JSON file with the desired updated values is needed.
+Similarly, this is its POST equivalent method that updates a specific user using its id values, that needs to be known beforehand. A JSON file with the desired updated values is needed. This method also checks if state value is string and has length 2
 > HTTP://18.223.32.201:4000/users/<int:id> 
 > Example of JSON
 > > {first_name:<A_FIRST_NAME>,
