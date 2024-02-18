@@ -38,18 +38,22 @@ class User(db.Model):
 
 db.create_all()
 
-#create a test route
-@app.route('/test', methods=['GET'])
-def test():
-  return make_response(jsonify({'message': 'test route'}), 200)
-
-
 # create a user
 @app.route('/users', methods=['POST'])
 def create_user():
   try:
     data = request.get_json()
-    new_user = User(username=data['username'], email=data['email'])
+    new_user = User(first_name=data['first_name'],
+                    last_name=data['last_name'],
+                    company_name=data['company_name'],
+                    address=data['address'],
+                    city=data['city'],
+                    state=data['state'],
+                    zip=data['zip'],
+                    phone1=data['phone1'],
+                    phone2=data['phone2'],
+                    email=data['email'],
+                    department=data['department'] )
     db.session.add(new_user)
     db.session.commit()
     return make_response(jsonify({'message': 'user created'}), 201)
@@ -83,8 +87,17 @@ def update_user(id):
     user = User.query.filter_by(id=id).first()
     if user:
       data = request.get_json()
-      user.username = data['username']
-      user.email = data['email']
+      user.first_name=data['first_name'],
+      user.last_name=data['last_name'],
+      user.company_name=data['company_name'],
+      user.address=data['address'],
+      user.city=data['city'],
+      user.state=data['state'],
+      user.zip=data['zip'],
+      user.phone1=data['phone1'],
+      user.phone2=data['phone2'],
+      user.email=data['email'],
+      user.department=data['department'] 
       db.session.commit()
       return make_response(jsonify({'message': 'user updated'}), 200)
     return make_response(jsonify({'message': 'user not found'}), 404)
