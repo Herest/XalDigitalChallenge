@@ -26,14 +26,14 @@ This is a GET method that list all the content inside the Users table
 This is a POST method that receives a JSON with key-values equivalent to the ones declared in the Users table definition
 > HTTP://18.223.32.201:4000/users
 > Example of JSON
-> > {first_name:<'first_name'>,
-      last_name:<'last_name'>,
-      company_name:<ta['company_name'],
-      address=data['address'],
-      city=data['city'],
-      state=data['state'],
-      zip=data['zip'],
-      phone1=data['phone1'],
-      phone2=data['phone2'],
-      email=data['email'],
-      department=data['department']}
+> > {first_name:<A_FIRST_NAME>,
+      last_name:<A_LAST_NAME>,
+      company_name:<A_COMPANY_NAME>,
+      address:<['address'],
+      city:<['city'],
+      state:<['state'],
+      zip:<['zip'],
+      phone1:<['phone1'],
+      phone2:<['phone2'],
+      email:<['email'],
+      department:<['department']}
