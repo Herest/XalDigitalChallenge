@@ -7,6 +7,7 @@ This link shows the functionality of showing all the elements in the table, for 
 # The solution explained
 The process of the solution is as follows:
 * First create a Postgres DB and fill it with the received CSV file, which ERD can be found below. I added the column *id* as the primary key.
+  * Before creating the table, the script checks if the column state has length 2 and only contains letters   
 ![Alt text](/img/ERD.png)
 
 * Create the REST API with Python and Flask
