@@ -17,4 +17,11 @@ FROM '/docker-entrypoint-initdb.d/Sample.csv'
 DELIMITER ','
 CSV HEADER;
 
-ALTER TABLE sample_data ADD COLUMN id SERIAL PRIMARY KEY;
+SELECT *
+INTO Users
+FROM sample_data
+WHERE state ~ '[A-Za-z]*' and length(state)=2;
+
+ALTER TABLE Users ADD COLUMN id SERIAL PRIMARY KEY;
+
+DROP TABLE sample_data

@@ -37,3 +37,24 @@ This is a POST method that receives a JSON with key-values equivalent to the one
 > >  phone2:<A_PHONE>,
 > >  email:<AN_EMAIL>,
 > >  department:<A_DEPARTMENT_VALUE>}
+
+### Get a user by ID
+This is a GET method that retrieves a user by its id values, that needs to be known beforehand.
+> HTTP://18.223.32.201:4000/users/<int:id> 
+
+### Update a user by ID
+Similarly, this is its POST equivalent method that updates a specific user using its id values, that needs to be known beforehand. A JSON file with the desired updated values is needed.
+> HTTP://18.223.32.201:4000/users/<int:id> 
+> Example of JSON
+> > {first_name:<A_FIRST_NAME>,
+> >  last_name:<A_LAST_NAME>,
+> >  company_name:<A_COMPANY_NAME>,
+> >  address:<AN_ADDRESS>,
+> >  city:<A_CITY>,
+> >  state:<A_STATE>,
+> >  zip:<A_ZIP>,
+> >  phone1:<A_PHONE>,
+> >  phone2:<A_PHONE>,
+> >  email:<AN_EMAIL>,
+> >  department:<A_DEPARTMENT_VALUE>}
+

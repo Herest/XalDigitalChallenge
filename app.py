@@ -7,7 +7,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DB_URL')
 db = SQLAlchemy(app)
 
 class User(db.Model):
-    __tablename__ = 'sample_data'
+    __tablename__ = 'Users'
 
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(100), nullable=True)
